@@ -4,32 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="assets/javascript/game.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <script>
-//          var $ = function (id) {
-//      return document.getElementById(id);
-//  }
-    var word = [ "LORDNIKON", "PHREAK", "ACIDBURN", "CRASHOVERRIDE", "CEREALKILLER", "ZEROCOOL", "THEPLAGUE"]
-    var choice =  word [Math.floor(Math.random() * word.length)];
-    var answer = word[choice];
-    console.log(answer);
-    var wordLength = answer.length;
-    var display=[wordLength];
-    var win = wordLength;
-    var letters = answer.split(``);
-    var guessesLeft = 6;
-    var output = " ";
-    var userGuess = " ";
-    
-    console.log(display);
-    console.log(letters);
-    console.log(word);
-    console.log(choice);
-
-
-    </script>
-
+   
+   <p id=game></p>
+   
+   
 </body>
 </html>
