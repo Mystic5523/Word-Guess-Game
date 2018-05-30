@@ -4,12 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="assets/javascript/game.js"></script>
+    <!-- <script src="assets/javascript/game.js"></script> -->
     <title>Document</title>
 </head>
 <body>
    
    <p id=game></p>
+
+   <script>
+   
+   var word = [ "LORD NIKON", "PHREAK", "ACID BURN", "CRASH OVERRIDE", "CEREAL KILLER", "ZERO COOL", "THE PLAGUE"]
+    var rand = Math.floor(Math.random() * word.length)
+    var choice =  word[rand];
+    var wordLength = choice.length;
+    var display = wordLength;
+    var win = wordLength;
+    var letters = choice.split(``);
+    var guessesLeft = 10;
+    var output = " ";
+    var userType = " ";
+    var randWordArray = [];
+
+    
+
+    
+    // console.log(event);
+    // console.log(display);
+    // console.log(letters);
+    // console.log(choice);
+    // console.log(guessesLeft);
+    // console.log(randWordArray);
+    document.write(letters);
+    // document.write(guessesLeft);
+
+    for (var i = 0; i < choice.length; i++){
+        if (choice[i] === ' ') {
+        randWordArray.push('- ');
+        }
+        else {
+        randWordArray.push('_ ');
+        }
+        document.getElementById("game").textContent = randWordArray.join("");
+        // console.log(choice[i]);
+    }
+
+    
+       
+
+    console.log(randWordArray);
+    function userGuess(userType){
+    console.log(userType);
+    if (randWordArray.indexOf(letters >= 0)) {
+        for (var j = 0; j < randWordArray.length; j++);{
+            if(choice[i] == letters){
+            randWordArray[j] = choice[i];  
+            }
+        }
+    document.getElementById("game").textContent = randWordArray.join("");
+    }
+    else {
+        // wrong letter adds +1 to wrong counter
+        if (randWordArray.indexOf(letters === -1)) {
+            guessesLeft--;
+            console.log(guessesLeft);
+            console.log(letters);
+        }
+    }
+    }
+
+    document.onkeyup = function(event) {
+        if (event.keyCode >= 65 && event.keyCode <= 90){
+        
+        userType = event.key.toUpperCase();
+        console.log(userType);
+        }
+    }
+
+
+ 
+   
+   
+   </script>
    
    
 </body>
