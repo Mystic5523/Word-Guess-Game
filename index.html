@@ -54,17 +54,16 @@
     console.log(randWordArray);
     function userGuess(userType){
     console.log(userType);
-    if (randWordArray.indexOf(letters >= 0)) {
+    if (randWordArray.indexOf(letter >= 0)) {
         for (var j = 0; j < randWordArray.length; j++);{
-            if(choice[i] == letters){
+            if(choice[i] == letter){
             randWordArray[j] = choice[i];  
             }
         }
     document.getElementById("game").textContent = randWordArray.join("");
     }
     else {
-        // wrong letter adds +1 to wrong counter
-        if (randWordArray.indexOf(letters === -1)) {
+        if (randWordArray.indexOf(letter === -1)) {
             guessesLeft--;
             console.log(guessesLeft);
             console.log(letters);
