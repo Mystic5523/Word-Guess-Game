@@ -10,10 +10,14 @@
 <body>
    
    <p id=game></p>
+    <br>
+   <p id=counter></p>
+    <br>
+    <h1 id=endGame></h1>
 
    <script>
    
-   var word = [ "LORD NIKON", "PHREAK", "ACID BURN", "CRASH OVERRIDE", "CEREAL KILLER", "ZERO COOL", "THE PLAGUE"]
+    var word = [ "LORD NIKON", "PHREAK", "ACID BURN", "CRASH OVERRIDE", "CEREAL KILLER", "ZERO COOL", "THE PLAGUE"]
     var rand = Math.floor(Math.random() * word.length)
     var choice =  word[rand];
     var wordLength = choice.length;
@@ -24,18 +28,19 @@
     var output = " ";
     var userType = " ";
     var randWordArray = [];
+    var wrongLetter = false;
 
     
-
     
     // console.log(event);
     // console.log(display);
-    // console.log(letters);
+    console.log(letters);
     // console.log(choice);
-    // console.log(guessesLeft);
+    // document.write(guessesLeft);
     // console.log(randWordArray);
     document.write(letters);
-    // document.write(guessesLeft);
+
+
 
     for (var i = 0; i < choice.length; i++){
         if (choice[i] === ' ') {
@@ -49,36 +54,46 @@
     }
 
     
-       
-
-    console.log(randWordArray);
+    document.getElementById("counter").textContent = guessesLeft;
+      
+    // console.log(randWordArray);
     function userGuess(userType){
-    console.log(userType);
-    if (randWordArray.indexOf(letter >= 0)) {
-        for (var j = 0; j < randWordArray.length; j++);{
-            if(choice[i] == letter){
-            randWordArray[j] = choice[i];  
+        console.log(guessesLeft);
+        if (guessesLeft === 0){
+            alert("Lost!");
+            return;
+        }
+        letters.forEach((ltr, index)=>{
+            if (ltr === userType){
+                randWordArray.splice(index, 1, userType);
+                wrongLetter = true;
             }
-        }
-    document.getElementById("game").textContent = randWordArray.join("");
-    }
-    else {
-        if (randWordArray.indexOf(letter === -1)) {
+        });
+
+        if (!wrongLetter) { 
             guessesLeft--;
-            console.log(guessesLeft);
-            console.log(letters);
+    
         }
+        else {
+            wrongLetter = false;
+        }
+        document.getElementById("game").textContent = randWordArray.join("");
+        document.getElementById("counter").textContent = guessesLeft;
     }
-    }
+
 
     document.onkeyup = function(event) {
         if (event.keyCode >= 65 && event.keyCode <= 90){
         
         userType = event.key.toUpperCase();
+        userGuess(userType);
         console.log(userType);
         }
     }
 
+    if (guessesLeft === 0){
+        alert("Game Over!")
+    }
 
  
    
