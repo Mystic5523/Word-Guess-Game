@@ -4,29 +4,43 @@ body {
 }
 
 main {
-    max-width: 960px;
+    background-color: rgba(128, 128, 128, .75);
+    width: 80%;
     padding: 1em;
     border: 2px;
     border-color: #dddddd;
-    margin-bottom: 1em;
+    margin-top: 3em;
+    margin-bottom: 3em;
     margin-left: auto;
     margin-right: auto;
 }
 
 p {
     text-align: center;
-    color: yellow;
+    color: rgba(255, 245, 0, 1)
 }
 
+
 h1 {
-    color: yellow;
+    color: rgba(255, 245, 0, 1);
+    text-align: center;
+    font-family: 'Aldrich', sans-serif;
+    font-size: 30px;
 }
 
 #guesses {
-    color: red;
+    color: rgba(253, 38, 0, 1);
+    text-align: center;
+    font-family: 'Aldrich', sans-serif;
+    font-size: 20px;
 }
 
-.jumbotron.mt-4 {
-    background-color: grey;
-}
 
+
+body, html {
+    height: 100%;
+    display: grid;
+  }
+  span {
+    margin: auto;
+  }
