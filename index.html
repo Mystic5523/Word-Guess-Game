@@ -4,102 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Aldrich|Indie+Flower" rel="stylesheet">
     <!-- <script src="assets/javascript/game.js"></script> -->
     <title>Document</title>
 </head>
 <body>
-   
-   <p id=game></p>
-    <br>
-   <p id=counter></p>
-    <br>
-    <h1 id=endGame></h1>
-
-   <script>
-   
-    var word = [ "LORD NIKON", "PHREAK", "ACID BURN", "CRASH OVERRIDE", "CEREAL KILLER", "ZERO COOL", "THE PLAGUE"]
-    var rand = Math.floor(Math.random() * word.length)
-    var choice =  word[rand];
-    var wordLength = choice.length;
-    var display = wordLength;
-    var win = wordLength;
-    var letters = choice.split(``);
-    var guessesLeft = 10;
-    var output = " ";
-    var userType = " ";
-    var randWordArray = [];
-    var wrongLetter = false;
-
-    
-    
-    // console.log(event);
-    // console.log(display);
-    console.log(letters);
-    // console.log(choice);
-    // document.write(guessesLeft);
-    // console.log(randWordArray);
-    document.write(letters);
-
-
-
-    for (var i = 0; i < choice.length; i++){
-        if (choice[i] === ' ') {
-        randWordArray.push('- ');
-        }
-        else {
-        randWordArray.push('_ ');
-        }
-        document.getElementById("game").textContent = randWordArray.join("");
-        // console.log(choice[i]);
-    }
-
-    
-    document.getElementById("counter").textContent = guessesLeft;
-      
-    // console.log(randWordArray);
-    function userGuess(userType){
-        console.log(guessesLeft);
-        if (guessesLeft === 0){
-            alert("Lost!");
-            return;
-        }
-        letters.forEach((ltr, index)=>{
-            if (ltr === userType){
-                randWordArray.splice(index, 1, userType);
-                wrongLetter = true;
-            }
-        });
-
-        if (!wrongLetter) { 
-            guessesLeft--;
-    
-        }
-        else {
-            wrongLetter = false;
-        }
-        document.getElementById("game").textContent = randWordArray.join("");
-        document.getElementById("counter").textContent = guessesLeft;
-    }
-
-
-    document.onkeyup = function(event) {
-        if (event.keyCode >= 65 && event.keyCode <= 90){
+    <main>
         
-        userType = event.key.toUpperCase();
-        userGuess(userType);
-        console.log(userType);
-        }
-    }
+        <div class="container">
+            <div class="jumbotron mt-4">
+                <h1 class="text-center">Guess the Hacker!</h1>
+                <div class="text-center"><h1><span id="game"></span></h1></div> 
+                <div class="text-center" id="guesses">Guesses Left: <span id="counter"></span></div>
+            </div>
+        </div>
 
-    if (guessesLeft === 0){
-        alert("Game Over!")
-    }
+        <!-- <p id=game></p>
+            <br>
+        <p id=counter></p>
+            <br>
+            <h1 id=endGame></h1> -->
 
- 
+        <script>
+        
+            var word = [ "LORD NIKON", "PHREAK", "ACID BURN", "CRASH OVERRIDE", "CEREAL KILLER", "ZERO COOL", "THE PLAGUE"]
+            var rand = Math.floor(Math.random() * word.length)
+            var choice =  word[rand];
+            var wordLength = choice.length;
+            var display = wordLength;
+            var win = wordLength;
+            var letters = choice.split(``);
+            var guessesLeft = 10;
+            var output = " ";
+            var userType = " ";
+            var randWordArray = [];
+            var wrongLetter = false;
+
+            
+            
+            // console.log(event);
+            // console.log(display);
+            console.log(letters);
+            // console.log(choice);
+            // document.write(guessesLeft);
+            // console.log(randWordArray);
+            // document.write(letters);
+
+
+
+            for (var i = 0; i < choice.length; i++){
+                if (choice[i] === ' ') {
+                randWordArray.push('- ');
+                }
+                else {
+                randWordArray.push('_ ');
+                }
+                document.getElementById("game").textContent = randWordArray.join("");
+                // console.log(choice[i]);
+            }
+
+            
+            document.getElementById("counter").textContent = guessesLeft;
+            
+            // console.log(randWordArray);
+            function userGuess(userType){
+                console.log(guessesLeft);
+                if (guessesLeft === 0){
+                    alert("Lost!");
+                    return;
+                }
+                letters.forEach((ltr, index)=>{
+                    if (ltr === userType){
+                        randWordArray.splice(index, 1, userType);
+                        wrongLetter = true;
+                    }
+                });
+
+                if (!wrongLetter) { 
+                    guessesLeft--;
+            
+                }
+                else {
+                    wrongLetter = false;
+                }
+                document.getElementById("game").textContent = randWordArray.join("");
+                document.getElementById("counter").textContent = guessesLeft;
+            }
+
+
+            document.onkeyup = function(event) {
+                if (event.keyCode >= 65 && event.keyCode <= 90){
+                
+                userType = event.key.toUpperCase();
+                userGuess(userType);
+                console.log(userType);
+                }
+            }
+
+            if (guessesLeft === 0){
+                alert("Game Over!")
+            }
+
+        
+        
+        
+        </script>
    
-   
-   </script>
-   
-   
+    </main> 
 </body>
 </html>

@@ -1,0 +1,32 @@
+body {
+    background-image: url("../../assets/images/background.jpg");
+    background-color: #bb3b32;
+}
+
+main {
+    max-width: 960px;
+    padding: 1em;
+    border: 2px;
+    border-color: #dddddd;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    text-align: center;
+    color: yellow;
+}
+
+h1 {
+    color: yellow;
+}
+
+#guesses {
+    color: red;
+}
+
+.jumbotron.mt-4 {
+    background-color: grey;
+}
+
